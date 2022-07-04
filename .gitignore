@@ -1,0 +1,17 @@
+design/
+build/*
+dist/*
+
+.idea
+.vscode/
+*.sublime-*
+
+node_modules/
+
+__MACOSX
+Thumbs.db
+.DS_Store
+
+*.rar
+*.zip
+*.log

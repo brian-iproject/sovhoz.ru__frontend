@@ -1,0 +1,27 @@
+.wide-block {
+	$block-name: &; // #{$block-name}__element
+
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding-bottom: 3.25rem;
+	padding-top: 3.25rem;
+
+	&--gray-lighter {
+		background-color: var(--color-gray--lighter);
+	}
+
+	&--gray-lighten {
+		background-color: var(--color-gray--lighten);
+	}
+
+	&--gray-darken {
+		background-color: var(--color-gray--darken);
+		color: var(--color-white);
+	}
+
+	@media (min-width: $screen-md) {
+		padding-bottom: 6.5rem;
+		padding-top: 6.5rem;
+	}
+}

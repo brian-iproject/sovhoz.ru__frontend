@@ -1,0 +1,69 @@
+.image {
+	$block-name: &; // #{$block-name}__element
+
+	display: block;
+	text-decoration: none;
+	margin: 0 auto;
+	width: fit-content;
+	transition: var(--transition-time);
+
+	image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+	image-rendering: -moz-crisp-edges;          /* Firefox                        */
+	image-rendering: -o-crisp-edges;            /* Opera                          */
+	image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+	//image-rendering: pixelated;               /* Chrome                         */
+	image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+	-ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+	&:not(&--wide) {
+		max-width: 768px;
+	}
+
+	&:not(:first-child):not(.grid__item),
+	&--not-first-child {
+		margin-top: var(--blocks-margin-vertical);
+	}
+
+	&:not(:last-child):not(.grid__item),
+	&--not-last-child {
+		margin-bottom: var(--blocks-margin-vertical);
+	}
+
+	li:not(:first-child) &:first-child {
+		margin-top: var(--blocks-margin-vertical);
+	}
+
+	li:not(:last-child) &:last-child {
+		margin-bottom: var(--blocks-margin-vertical);
+	}
+
+	&--white-bg {
+		background: var(--color-white);
+	}
+
+	& a {
+		display: flex;
+		height: 100%;
+		align-items: center;
+	}
+
+	@at-root a#{$block-name},
+	& a:hover {
+		text-decoration: none;
+	}
+
+	& img {
+		display: block;
+		margin: 0 auto;
+	}
+
+	&--border {
+		border: 1px solid var(--color-gray--lighten);
+	}
+
+	@media (min-width: $screen-md) {
+		&:hover {
+			box-shadow: var(--shadow);
+		}
+	}
+}

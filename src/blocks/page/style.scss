@@ -1,0 +1,249 @@
+.page {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-text-size-adjust: 100%; // stylelint-disable-line
+
+	&__inner {
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: 100vh;
+
+		& *,
+		& *::before,
+		& *::after {
+			box-sizing: inherit;
+		}
+	}
+
+	&__header {
+		//position: sticky;
+		//top: 0;
+		z-index: 15;
+	}
+
+	&__nav {
+		width: 100%;
+		z-index: 10;
+
+		@media (max-width: $screen-lg - 1) {
+			height: 100vh;
+			overflow: auto;
+			position: absolute;
+			transform: translateX(-100%);
+			transition: var(--transition-time);
+
+			&.-is-active {
+				transform: translateX(0);
+			}
+		}
+
+		@media (min-width: $screen-lg) {
+			display: block;
+		}
+	}
+
+	&__breadcrumb {
+		height: 0;
+
+		&:not(:empty) .breadcrumb {
+			padding-top: 3em;
+			position: relative;
+			z-index: 5;
+		}
+	}
+
+	&__content {
+		flex-grow: 1;
+		flex-shrink: 0;
+	}
+}
+
+body {
+	color: var(--text-color);
+	font: var(--font-size) var(--font-family-primary);
+	line-height: var(--line-height);
+	margin: 0;
+	padding: 0;
+	word-wrap: break-word;
+
+	@media (max-width: $screen-lg - 1 ) {
+
+		&.-no-scroll {
+			overflow: hidden;
+		}
+	}
+}
+
+h1, .h1 {
+	font-size: var(--font-size-h1);
+	font-weight: 500;
+	line-height: 1.2;
+	margin: 0 0 .75em 0;
+	text-transform: uppercase;
+}
+
+h2, .h2 {
+	font-size: var(--font-size-h2);
+	font-weight: 500;
+	line-height: 1.2;
+	margin: 0 0 .75em 0;
+	padding: 0;
+}
+
+h3, .h3 {
+	font-size: var(--font-size-h3);
+	font-weight: 500;
+	line-height: 1.2;
+	margin: 0 0 .75em 0;
+	padding: 0;
+}
+
+h4, .h4 {
+	font-size: var(--font-size-h4);
+	font-weight: 500;
+	line-height: 1.2;
+	margin: 0 0 .75em 0;
+	padding: 0;
+}
+
+h5, .h5 {
+	font-size: var(--font-size-h5);
+	font-weight: 500;
+	margin: 0 0 .75em 0;
+	padding: 0;
+}
+
+h6, .h6 {
+	font-size: var(--font-size-h6);
+	font-weight: 500;
+	margin: 0 0 .75em 0;
+	padding: 0;
+}
+
+h1:not(:first-child), .h1:not(:first-child),
+h2:not(:first-child), .h2:not(:first-child),
+h3:not(:first-child), .h3:not(:first-child),
+h4:not(:first-child), .h4:not(:first-child),
+h5:not(:first-child), .h5:not(:first-child),
+h6:not(:first-child), .h6:not(:first-child) {
+	margin-top: 1em;
+}
+
+.subtitle {
+	font-size: var(--font-size--large);
+	margin-top: -1em;
+}
+
+a {
+  background-color: transparent;
+  color: var(--link-color);
+	text-decoration-color: currentColor;
+	transition: text-decoration-color .3s, color .3s;
+
+  &:hover,
+  &:focus {
+    color: var(--link-color--hover);
+		text-decoration-color: transparent;
+  }
+
+  &[href^='tel:'] {
+    // На больших экранах телефоны-ссылки делаем обычным текстом
+    @media (min-width: $screen-md) {
+      color: inherit;
+      pointer-events: none;
+      text-decoration: inherit;
+      white-space: nowrap;
+    }
+  }
+}
+
+.pseudo-link {
+	color: #5c90fe;
+	cursor: pointer;
+	text-decoration-color: rgba(92,144,254,0);
+	text-decoration-style: dashed;
+	transition: text-decoration-color .3s, color .3s;
+
+	&:hover,
+  &:focus {
+    color: var(--link-color--hover);
+		text-decoration-color: transparent;
+  }
+}
+
+p {
+	// http://clagnut.com/blog/2395
+	hyphenate-limit-chars: 6 3 3;
+	hyphenate-limit-last: always;
+	hyphenate-limit-lines: 2;
+	hyphenate-limit-zone: 8%;
+	hyphens: auto;
+	margin-bottom: 0;
+	margin-top: 0;
+
+	* + & {
+		margin-top: var(--typo-margin-vertical);
+	}
+}
+
+svg {
+	fill: currentColor;
+	fill-rule: evenodd;
+
+	a &,
+	button & {
+		pointer-events: none; // Мы любим Edge, это браузер! (почти)
+	}
+
+	&:not(:root) {
+		overflow: hidden; // Скрыть выступающее за границы в IE
+	}
+}
+
+img {
+	border: none;
+	height: auto;
+	max-width: 100%;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--color-gray);
+	box-sizing: content-box; // Проблема Firefox
+	height: 0;               // Проблема Firefox
+	margin-bottom: calc(var(--typo-margin-vertical) * 2);
+	margin-top: calc(var(--typo-margin-vertical) * 2);
+	overflow: visible;       // Проблема Edge и IE
+}
+
+[data-hidden-captcha] [name=CAPTCHA_HIDDEN],
+[data-hidden-captcha] [name=MIDDLE_NAME] {
+	left: -999999999px;
+	position: absolute;
+	z-index: -1;
+}
+
+.clear {
+	clear: both;
+	float: none;
+	height: 0;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+.clearfix {
+	zoom: 1;
+
+	&::before,
+	&::after {
+		content: "";
+		display: table;
+		line-height: 0;
+	}
+
+	.clearfix::after {
+		clear: both;
+	}
+}

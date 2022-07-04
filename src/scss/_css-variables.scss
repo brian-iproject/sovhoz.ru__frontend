@@ -1,0 +1,95 @@
+:root {
+  /* Базовые Цвета */
+  --color-primary--light:   rgb(224, 0, 0);     // #e00000
+  --color-primary:          rgb(204, 0, 0);     // #cc0000
+  --color-primary--dark:    rgb(128, 0, 0);     // #800000
+
+  --color-white:            rgb(255, 255, 255); // #ffffff
+  --color-gray--lighter:    rgb(247, 247, 248); // #f7f7f8
+  --color-gray--lighten:    rgb(238, 238, 239); // #eeeeef
+  --color-gray--light:      rgb(196, 196, 196); // #c4c4c4
+  --color-gray:             rgb(166, 166, 166); // #a6a6a6
+  --color-gray--dark:       rgb(117, 117, 117); // #757575
+  --color-gray--darken:     rgb(43, 43, 43);    // #2b2b2b
+  --color-gray--darker:     rgb(32, 32, 32);    // #202020
+  --color-black:            rgb(0, 0, 0);       // #000000
+
+  --hue-info: 211;
+  --hue-success: 134;
+  --hue-error: 354;
+  --hue-warning: 45;
+
+  --color-success:          rgb(92, 183, 92);
+  --color-danger:           rgb(216, 84, 79);
+  --color-danger--light:    rgba(216, 84, 79, .65);
+  --color-warning:          rgb(239, 172, 77);
+
+  /* Семантические цвета */
+  --text-color:             var(--color-gray--darker);
+  --text-color-muted:       var(--color-gray);
+
+  --link-color:             var(--color-primary);
+  --link-color--hover:      var(--color-primary--light);
+
+  /* Базовая типографика */
+  --font-size--tiny:        10px;
+  --font-size--small:       12px;
+  --font-size--medium:      13px;
+  --font-size:              14px;
+  --font-size--large:       16px;
+  --font-size--huge:        18px;
+  --font-size--xxx-huge:    38px;
+
+  --font-size-h1:           30px;
+  --font-size-h2:           30px;
+  --font-size-h3:           24px;
+  --font-size-h4:           18px;
+  --font-size-h5:           16px;
+  --font-size-h6:           14px;
+
+  --font-family-primary:    'Ubuntu', sans-serif;
+
+  --line-height:            1.625;
+
+  --typo-margin-vertical:   1em;
+
+  --blocks-margin-vertical:  2.5em;
+
+  /* Сетка */
+  --grid-gutter-x:          15px;
+  --grid-gutter-y:          15px;
+
+  /* Разное */
+  --transition-time:        .3s;
+  --animate-duration:       var(--transition-time);
+  --shadow:                 0 15px 15px rgba(14, 16, 20, .15);
+  --shadow--light:          0 15px 15px rgba(14, 16, 20, .05);
+
+  @media (min-width: 768px) {
+    /* Базовая типографика */
+    --font-size--tiny:      10px;
+    --font-size--small:     12px;
+    --font-size--medium:    14px;
+    --font-size:            16px;
+    --font-size--large:     18px;
+    --font-size--huge:      20px;
+    --font-size--xxx-huge:  68px;
+
+    --font-size-h1:         44px;
+    --font-size-h2:         30px;
+    --font-size-h3:         24px;
+    --font-size-h4:         18px;
+    --font-size-h5:         16px;
+    --font-size-h6:         14px;
+  }
+
+  @media (min-width: 992px) {
+    /* Базовая типографика */
+    --font-size-h1:         54px;
+    --font-size-h2:         30px;
+    --font-size-h3:         24px;
+    --font-size-h4:         18px;
+    --font-size-h5:         16px;
+    --font-size-h6:         14px;
+  }
+}

@@ -1,0 +1,27 @@
+.important-text {
+
+	$block-name: &; // #{$block-name}__element
+
+	background: var(--color-white);
+	border-radius: 7px;
+	box-shadow: var(--shadow--light);
+	padding: 1.875em 3.125em 2.5em 3.125em;
+	overflow: hidden; // Сброс float при наличии иконки
+
+	@include blocks-margin-vertical;
+
+	&--large {
+		font-size: var(--font-size--large);
+	}
+
+	&--gray {
+		background: var(--color-gray--lighter);
+		box-shadow: none;
+	}
+
+	& > svg {
+		float: left;
+		margin-right: var(--grid-gutter-x);
+		fill: var(--color-primary);
+	}
+}

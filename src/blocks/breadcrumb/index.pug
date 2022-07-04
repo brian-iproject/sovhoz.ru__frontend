@@ -1,0 +1,28 @@
+-
+	let bc = [
+		{
+			'link': '/',
+			'title': 'Главная',
+		},
+		{
+			'link': '/prodvizhenie-sajtov/',
+			'title': 'Продвижение сайтов',
+		},
+		{
+			'title': 'SEO-аудит сайта',
+		}
+	]
+
+.breadcrumb
+	ul.breadcrumb__list(itemprop="http://schema.org/breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList")
+		each item, i in bc
+			li.breadcrumb__item(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+				if (item.link)
+					a.breadcrumb__link(href=item.link title=item.title itemprop="item")
+						span(itemprop="name") !{item.title}
+					meta(itemprop="position" content=i + 1)
+				else
+					span.breadcrumb__link(title=item.title itemprop="item")
+						span(itemprop="name") !{item.title}
+					meta(itemprop="position" content=i + 1)
+

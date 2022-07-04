@@ -1,0 +1,94 @@
+.list {
+	$block-name: &; // #{$block-name}__element
+
+	@include list-reset;
+	flex-direction: column;
+	line-height: var(--line-height);
+	text-align: left;
+
+	&:not(:first-child),
+	&--not-first-child {
+		margin-top: var(--typo-margin-vertical);
+	}
+
+	&:not(:last-child),
+	&--not-last-child {
+		margin-bottom: var(--typo-margin-vertical);
+	}
+
+	li:not(:first-child) &:first-child {
+		margin-top: var(--typo-margin-vertical);
+	}
+
+	li:not(:last-child) &:last-child {
+		margin-bottom: var(--typo-margin-vertical);
+	}
+
+	& > li {
+		padding: 0 0 0 1.5em;
+		position: relative;
+
+		&::before {
+			left: 0;
+			position: absolute;
+			top: 0;
+		}
+	}
+
+	& li + li {
+		margin-top: calc(var(--typo-margin-vertical) * .5);
+	}
+
+	&:not(&--column-2) {
+		display: flex; // Исправляет обтекание картинки списком
+	}
+
+	&--column-2 {
+		column-count: 2;
+		column-gap: var(--grid-gutter-x);
+	}
+
+	@at-root ul#{$block-name} {
+		& > li {
+
+			&::before {
+				color: inherit;
+				content: "•";
+				font-size: 1.5em;
+				line-height: 0;
+				margin: .6em 0 0 0;
+			}
+		}
+	}
+
+	@at-root ol#{$block-name} {
+		counter-reset: item;
+
+		& > li {
+
+			&::before {
+				content: counters(item,".") ". ";
+				counter-increment: item;
+			}
+		}
+	}
+
+	@at-root
+	ul#{$block-name}--checked,
+	ul#{$block-name}--checked-figure {
+		& > li {
+			padding: 0 0 0 1.8em;
+
+			&::before {
+				content: '';
+				height: 1.2em;
+				width: 1.2em;
+				margin: .2em 0 0 0;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-color: transparent;
+				font-size: 1em;
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+.v-scroll {
+	$block-name: &; // #{$block-name}__element
+
+	position: relative;
+
+	@include blocks-margin-vertical;
+
+	@media (max-width: $screen-md - 1) {
+		&__container {
+			overflow: auto;
+			max-height: 60vh;
+		}
+	}
+}

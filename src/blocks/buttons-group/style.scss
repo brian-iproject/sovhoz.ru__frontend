@@ -1,0 +1,21 @@
+.buttons-group {
+	$block-name: &; // #{$block-name}__element
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	justify-items: center;
+
+	@include blocks-margin-vertical;
+
+	@media (max-width: $screen-sm - 1) {
+		& .button {
+			flex-grow: 1;
+		}
+	}
+
+	&--center {
+		justify-items: center;
+		justify-content: center;
+	}
+}
